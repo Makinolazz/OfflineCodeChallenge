@@ -9,6 +9,7 @@ namespace OfflineCodeChallenge
     {
         public static int[] BuildIntArray(string input)
         {
+            //LINQ to turn string into a char[] and then select each item as int in an int[]
             var resultArray = input.Trim().ToCharArray().Select(x => (int)Char.GetNumericValue(x)).ToArray();
             return resultArray;
         }
@@ -28,6 +29,7 @@ namespace OfflineCodeChallenge
             int[] shortestArray;
             int[] result;
 
+            //Find the shortest array
             if (arrayA.Length <= arrayB.Length)
             {
                 result = arrayB;
@@ -39,6 +41,7 @@ namespace OfflineCodeChallenge
                 shortestArray = arrayB;
             }
 
+            //Use shortest array length to iterate throught the longest array, sum items values and keep the rest
             for (int i = 0; i < shortestArray.Length; i++)
             {
                 result[i] += shortestArray[i];
